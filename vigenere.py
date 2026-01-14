@@ -14,7 +14,7 @@ def find_stdispNmod(word,i):
         stddisp = 97
         mod = 26
     elif word[idx].isdigit():
-        stddisp = 48
+        stddisp = 49
         mod = 10
     elif word[idx] in l1:
         stddisp = 33
