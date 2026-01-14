@@ -1,4 +1,4 @@
-__author__ = 'U(196P8V' #this is my username encrypted in vigenere. try making a code to find the key!
+__author__ = 'U(196P8V' #this is my username ('F-162A7V') encrypted in vigenere. try making a code to find the key!
 
 
 
