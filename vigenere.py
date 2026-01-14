@@ -30,22 +30,34 @@ def find_stdispNmod(word,i):
 def encode(word, key):
     new_word = ""
     key = key.lower()
+    offset = 0
     for i in range(len(word)):
-        stddisp, mod = find_stdispNmod(word,i)
-        row = ord(word[i]) - stddisp
-        col = ord(key[i % len(key)]) - find_stdispNmod(key,i)[0]
-        new_word += chr(stddisp + (row + col) % mod)
+        if word[i] != ' ':
+
+            stddisp, mod = find_stdispNmod(word,i)
+            row = ord(word[i]) - stddisp
+            col = ord(key[(i+offset) % len(key)]) - find_stdispNmod(key,i)[0]
+            new_word += chr(stddisp + (row + col) % mod)
+        else:
+            offset -= 1;
+            new_word += ' '
     return new_word
 
 
 def decode(word, key):
     decoded_word = ""
     key = key.lower()
+    offset = 0
     for i in range(len(word)):
-        stddisp, mod = find_stdispNmod(word,i)
-        row = ord(word[i]) - stddisp
-        col = ord(key[i % len(key)]) - find_stdispNmod(key,i)[0]
-        decoded_word += chr(stddisp + ((row - col) % mod))
+        if word[i] != ' ':
+
+            stddisp, mod = find_stdispNmod(word,i)
+            row = ord(word[i]) - stddisp
+            col = ord(key[(i+offset) % len(key)]) - find_stdispNmod(key,i)[0]
+            decoded_word += chr(stddisp + ((row - col) % mod))
+        else:
+            offset -= 1;
+            decoded_word += ' '
     return decoded_word
 
 
